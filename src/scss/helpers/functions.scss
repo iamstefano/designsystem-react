@@ -1,0 +1,8 @@
+@use "sass:math";
+
+$basesize: 16px;
+
+// FUNZIONE CHE CONVERTE DA PX A REM
+@function rem($px) {
+  @return math.div($px, $basesize) * 1rem;
+}
