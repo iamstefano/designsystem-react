@@ -13,6 +13,19 @@
   display: flex;
 }
 
+@mixin flexbox-orizontal() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexbox-vertical() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @mixin justify-content($value) {
   justify-content: $value;
 }

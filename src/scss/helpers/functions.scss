@@ -6,3 +6,18 @@ $basesize: 16px;
 @function rem($px) {
   @return math.div($px, $basesize) * 1rem;
 }
+
+// FUNZIONE PER CREARE 'GRADIENTI COLORE - COLOR SHADES'
+@function colorShade($color, $percentage) {
+  @if ($percentage > 50) {
+    @return mix(black, $color, $percentage);
+  } @else {
+    @return mix(white, $color, $percentage);
+  }
+}
+
+// FUNZIONE COLONNE
+$columnCount: 12;
+@function column($col) {
+  @return math.div(100%, $columnCount) * $col;
+}
