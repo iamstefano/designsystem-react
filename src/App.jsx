@@ -1,11 +1,31 @@
 import { useState } from "react";
 import "./App.css";
 import "./App.scss";
+import { Button } from "./components/buttons";
+import { InputToggle } from "./components/form";
 
 function App() {
+  const [isButtonXl, setIsButtonXl] = useState(false);
+  const toggleButtonXl = () => {
+    setIsButtonXl(!isButtonXl);
+  };
   return (
     <>
-      <div className="container">
+      <div onClick={() => toggleButtonXl()}>
+        <Button label="go to" icon iconLeft size="sm" square />
+      </div>
+      <div>
+        <Button label="go to" icon outline size="md" />
+      </div>
+      {isButtonXl && (
+        <div>
+          <Button label="go to" outline size="xl" />
+        </div>
+      )}
+
+      <InputToggle />
+
+      {/* <div className="container">
         <div className="row">
           <div className="col-1">col1</div>
           <div className="col-1">col1</div>
@@ -77,7 +97,7 @@ function App() {
           <div className="col-g-1">A</div>
           <div className="col-g-1">B</div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
