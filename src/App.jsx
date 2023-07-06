@@ -2,15 +2,79 @@ import { useState } from "react";
 import "./App.css";
 import "./App.scss";
 import { Button } from "./components/buttons";
-import { InputToggle } from "./components/form";
+import {
+  InputText,
+  InputPassword,
+  InputToggle,
+  InputSelect,
+  DropdownSelect,
+} from "./components/form";
 
 function App() {
   const [isButtonXl, setIsButtonXl] = useState(false);
   const toggleButtonXl = () => {
     setIsButtonXl(!isButtonXl);
   };
+
+  const [inputTextValue, setInputTextValue] = useState();
+  const [inputPasswordValue, setInputPasswordValue] = useState();
+  const [inputSelectValue, setInputSelectValue] = useState();
+  const [inputDropdownValue, setInpuDropdownValue] = useState();
+
+  console.log(inputDropdownValue);
+
+  const options = {
+    name: "products",
+    id: "products",
+    options: [
+      {
+        id: 1,
+        label: "Basket",
+        value: "basket",
+      },
+      {
+        id: 2,
+        label: "Soccer",
+        value: "soccer",
+      },
+      {
+        id: 3,
+        label: "Run",
+        value: "run",
+      },
+    ],
+  };
+
   return (
     <>
+      <InputText
+        id={"name"}
+        name="name"
+        placeholder="Your name"
+        label={"name"}
+        // error
+        // errorMessage={"Inserisci il tuo nome"}
+        handleChange={setInputTextValue}
+      />
+
+      <InputPassword
+        id={"password"}
+        name="password"
+        placeholder="Your password"
+        label={"password"}
+        // error
+        // errorMessage={"Inserisci la tua password"}
+        handleChange={setInputPasswordValue}
+      />
+
+      <InputSelect
+        options={options}
+        defaultValue={options?.options[0]?.value}
+        handleChange={setInputSelectValue}
+      />
+
+      <DropdownSelect options={options} handleChange={setInpuDropdownValue} />
+
       <div onClick={() => toggleButtonXl()}>
         <Button label="go to" icon iconLeft size="sm" square />
       </div>
