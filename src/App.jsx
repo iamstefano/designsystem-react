@@ -9,6 +9,8 @@ import {
   InputSelect,
   DropdownSelect,
 } from "./components/form";
+import Header from "./components/header";
+import Hero from "./components/hero";
 
 function App() {
   const [isButtonXl, setIsButtonXl] = useState(false);
@@ -47,6 +49,8 @@ function App() {
 
   return (
     <>
+      <Header />
+      <Hero />
       <InputText
         id={"name"}
         name="name"
